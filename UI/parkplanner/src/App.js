@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import Mypark from "./pages/mypark";
 
 function App() {
-  const parkData = useState([]);
 
   return (
     <div className="App">
@@ -29,7 +28,7 @@ function App() {
             path="/mypark"
             element={
               <>
-                <Mypark parkData={parkData} />
+                <Mypark />
               </>
             }
           ></Route>

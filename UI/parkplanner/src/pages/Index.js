@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Index() {
+  //debugger;
+  const [parkCode, setParkCode] = useState("");
   const navigate = useNavigate();
 
-  const getData = () => {
-    //   const parkData = { data }
-
-    //   method: GET
-
-    navigate("/mypark");
+  const getData = async (e) => {
+    e.preventDefault();
+    navigate("/mypark", { state: parkCode, parkCode });
   };
 
   return (
@@ -27,7 +26,15 @@ export default function Index() {
         <form>
           <label for="choose-park">Choose the parks you want to visit</label>
           <br />
-          <select name="nationalParks" id="choose-park" multiple>
+          <select
+            name="nationalParks"
+            id="choose-park"
+            value={parkCode}
+            onChange={(e) => setParkCode(e.target.value)}
+          >
+            <option value="" hidden>
+              Select Park...
+            </option>
             <option value="acad">Acadia</option>
             <option value="npsa">American Samoa</option>
             <option value="arch">Arches</option>
