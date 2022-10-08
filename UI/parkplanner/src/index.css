@@ -9,6 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #c2fabd;
   background-image: "UI/parkplanner/images/body-trees.png";
+  background-position: center;
 }
 
 code {
