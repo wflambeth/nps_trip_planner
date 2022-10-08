@@ -11,7 +11,7 @@ NPS_ENDPOINT = "https://developer.nps.gov/api/v1"
 API_KEY_NPS = park_db.Credentials.API_KEY_NPS
 HEADERS = {"Authorization": API_KEY_NPS}
 
-# GET /park_db/(park_code)/fullname
+# GET /park_db/<park_code>/fullname
 # Retrieves fullname data from local SQLite DB
 def fullname(request, park_code):
     if request.method != 'GET':
@@ -32,7 +32,7 @@ def fullname(request, park_code):
         print(repr(e))
         return http.HttpResponseServerError("Sorry! There was an error.")
 
-# GET /park_db/(park_code)/events/<yyyy-mm-dd>
+# GET /park_db/<park_code>/events/<yyyy-mm-dd>
 # Retrieves event data directly from NPS API endpoint
 def events(request, park_code, date):
     # validate date querystring
@@ -52,6 +52,7 @@ def events(request, park_code, date):
         print(e)
         return http.HttpResponseServerError("Error retrieving events! Please try again.")
 
+# GET /park_db/<park_code>/alerts
 def alerts(request, park_code):
     endpoint = NPS_ENDPOINT + "/alerts?parkcode=" + park_code + "&api_key=" + API_KEY_NPS
     try:
