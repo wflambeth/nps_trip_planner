@@ -11,6 +11,9 @@ body {
   background-position: center;
 }
 
+header {
+  background-color: #406b45;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
