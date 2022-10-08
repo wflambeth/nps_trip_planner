@@ -15,10 +15,11 @@ export default function Mypark() {
   useEffect(() => {
     const getParkData = async () => {
       const response = await fetch(
-        `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9` // replace with Django API
+        `http://localhost:8000/park_db/${parkCode}/fullname`,
+        { method: "GET" }
       );
       const data = await response.json();
-      setParkData(data.data[0]);
+      setParkData(data.data);
     };
     getParkData();
   }, [parkCode]);

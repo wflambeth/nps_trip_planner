@@ -291,3 +291,4 @@ dist
 .Trashes
 ehthumbs.db
 Thumbs.dbvenv
+parkplanner/park_db/Credentials.py
