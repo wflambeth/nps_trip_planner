@@ -35,12 +35,12 @@ def fullname(request, park_code):
 # GET /park_db/(park_code)/events/<yyyy-mm-dd>
 # Retrieves event data directly from NPS API endpoint
 def events(request, park_code, date):
-    if date != datetime.fromisoformat(date).strftime('%Y-%m-%d'):
+    # validate date querystring
+    if date != datetime.fromisoformat(date).strftime('%Y-%m-%d'): 
         return http.HttpResponseBadRequest('Invalid date format; please use YYYY-MM-DD')
 
     endpoint = NPS_ENDPOINT + "/events?parkcode=" + park_code + "&dateStart=" + date + "&api_key=" + API_KEY_NPS + "&expandRecurring=True"
     try: 
-        print(endpoint)
         req = urllib.request.Request(endpoint, headers=HEADERS)
         with urllib.request.urlopen(req) as response:
             eventdata = json.load(response)
@@ -49,6 +49,19 @@ def events(request, park_code, date):
 
     except:
         e = sys.exc_info()[0]
-        #DEBUG
         print(e)
         return http.HttpResponseServerError("Error retrieving events! Please try again.")
+
+def alerts(request, park_code):
+    endpoint = NPS_ENDPOINT + "/alerts?parkcode=" + park_code + "&api_key=" + API_KEY_NPS
+    try:
+        req = urllib.request.Request(endpoint, headers=HEADERS)
+        with urllib.request.urlopen(req) as response:
+            alertdata = json.load(response)
+            print(alertdata)
+            return http.JsonResponse(alertdata)
+
+    except:
+        e = sys.exec_info()[0]
+        print(e)
+        return http.HttpResponseServerError("Error retrieving alerts! Please try again")
