@@ -33,7 +33,7 @@ export default function Index() {
             onChange={(e) => setParkCode(e.target.value)}
           >
             <option value="" hidden>
-              Select Park...
+              Pick a Park!
             </option>
             <option value="acad">Acadia</option>
             <option value="npsa">American Samoa</option>
