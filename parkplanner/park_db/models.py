@@ -5,5 +5,5 @@ class Park (models.Model):
         return self.park_code
     
     park_code = models.CharField(max_length=10, unique=True)
-    park_fullname = models.CharField(max_length=512, default="")
+    park_fullname = models.CharField(max_length=512, blank=True)
 
