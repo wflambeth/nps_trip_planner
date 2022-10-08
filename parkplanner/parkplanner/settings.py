@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "park_db.apps.ParkDbConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
