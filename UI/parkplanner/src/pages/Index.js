@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export default function Index() {
   //debugger;
   const [parkCode, setParkCode] = useState("");
@@ -12,7 +13,7 @@ export default function Index() {
   };
 
   return (
-    <div>
+    <div id='body'>
       <body>
         <h2>Welcome to our awesome app.</h2>
         <p>This app has been created to make your travel planning easier.</p>

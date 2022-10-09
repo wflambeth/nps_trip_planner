@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/header-styles.css";
 function Header() {
   return (
-    <div>
+    <div id='head'>
       <header>
         <h1>National Parks Trip</h1>
       </header>
