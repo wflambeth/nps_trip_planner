@@ -28,13 +28,24 @@ export default function Mypark() {
   return (
     <div>
       <h1>{parkData.fullName}</h1>
-      <p>{parkData.description}</p>
-      <p>{parkData.directionsInfo}</p>
-      <p>{parkData.directionsUrl}</p>
-      <p>{parkData.latitude}</p>
-      <p>{parkData.longitude}</p>
-      <p>{parkData.url}</p>
-      <p>{parkData.weatherInfo}</p>
+      <p className="description">{parkData.description}</p>
+      <p class="directions">{parkData.directionsInfo}</p>
+      <p class="directions-url">
+        <strong>View directions here: </strong> {parkData.directionsUrl}
+      </p>
+      <p class="coordinates-lat">
+        <strong>Latitude: </strong>
+        {parkData.latitude}
+      </p>
+      <p class="coordinates-lon">
+        <strong>Longitude: </strong> {parkData.longitude}
+      </p>
+      <p class="data-url">
+        <strong>Visit this URL for data: </strong> {parkData.url}
+      </p>
+      <p class="weather-info">
+        <strong>Weather information: </strong> {parkData.weatherInfo}
+      </p>
     </div>
   );
 }

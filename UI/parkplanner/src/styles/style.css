@@ -9,6 +9,42 @@ footer {
   width: 100%;
 }
 
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+.description {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.directions {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.directions-url {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.coordinates-lat {
+  padding-top: 15px;
+}
+
+.coordinates-lon {
+  padding-bottom: 15px;
+}
+
+.data-url {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.weather-info {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 main {
   background-color: white;
   text-align: center;
@@ -39,6 +75,10 @@ nav a:hover {
 
 h1 {
   text-align: center;
+  color: #000000;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "Oswald", sans-serif;
 }
 
 select {
