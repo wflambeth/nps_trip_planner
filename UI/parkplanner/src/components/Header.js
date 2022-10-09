@@ -2,19 +2,16 @@ import React from "react";
 import "../styles/header-styles.css";
 function Header() {
   return (
-    <div id='head'>
+    <div id="head">
       <header>
-        <h1>National Parks Trip</h1>
+        <nav id="articles">
+          <div id="nav-buttons">
+            <a href="/">Choose Parks</a>
+            <a href="#">Choose amenities</a>
+            <a href="#">Check your calendar</a>
+          </div>
+        </nav>
       </header>
-
-      <nav id="articles">
-        <div>
-          <a href="/">Choose Parks</a>
-          <a href="#">Choose amenities</a>
-          <a href="#">Check your calendar</a>
-          <a href="#">Submit</a>
-        </div>
-      </nav>
     </div>
   );
 }
