@@ -7,7 +7,6 @@ import Mypark from "./pages/mypark";
 import "./styles/style.css";
 
 function App() {
-
   return (
     <div className="App">
       <Router>

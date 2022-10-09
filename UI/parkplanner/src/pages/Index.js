@@ -14,12 +14,6 @@ export default function Index() {
   return (
     <div id="body">
       <body>
-        <nav id="articles">
-          <div id="nav-buttons">
-            <a href="/">Choose Parks</a>
-            <a href="#">Choose Amenities</a>
-          </div>
-        </nav>
         <h2>Welcome to the National Parks Trip Planner!</h2>
         <p>We aim to make your travel planning easier.</p>
         <p>

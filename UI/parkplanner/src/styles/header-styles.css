@@ -1,10 +1,11 @@
 #head {
   height: 200px;
-  width: 100%;
+  min-width: 100%;
   margin-bottom: 20px;
   color: #f3f1ca;
   background-color: #406b45;
   text-align: center;
-  background-image: url("images/header-image.png");
+  /* background-image: url("images/header-image.png"); */
   background-position: center;
+  margin: 0 auto;
 }
