@@ -6,7 +6,7 @@
 header,
 footer {
   background-color: #406b45;
-  width: 100%;
+  margin: 0;
 }
 
 body {
@@ -75,10 +75,13 @@ nav a:hover {
 
 h1 {
   text-align: center;
-  color: #000000;
+  color: #3c2317;
   padding-top: 15px;
   padding-bottom: 15px;
   font-family: "Oswald", sans-serif;
+}
+h2 {
+  color: #3c2317;
 }
 
 select {
@@ -101,4 +104,7 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+#choose-park {
+  background-color: #eddbc0;
 }
