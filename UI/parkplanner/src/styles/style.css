@@ -6,7 +6,6 @@
 header,
 footer {
   background-color: #406b45;
-  padding: 1%;
 }
 
 main {
@@ -17,12 +16,12 @@ main {
 nav {
   text-align: center;
   margin: 0.8% 0 1% 0;
-  padding: 0;
+  padding-left: 15px;
 }
 
 nav a {
   background-color: #a1c298;
-  border-radius: 10px;
+  border-radius: 5px;
   border-radius: 10px;
   color: #3c2317;
   font-size: 1.1em;

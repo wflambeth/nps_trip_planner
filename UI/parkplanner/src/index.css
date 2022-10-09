@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  width: 1200px;
+  width: 800px;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -9,6 +9,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #c2fabd;
   background-position: center;
+  margin-bottom: 30px;
+  font-family: "Oswald", sans-serif;
+}
+
+h2 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #000000;
+  font-family: "Oswald", sans-serif;
 }
 
 header {
