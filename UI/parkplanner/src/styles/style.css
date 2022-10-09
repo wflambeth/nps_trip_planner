@@ -6,6 +6,7 @@
 header,
 footer {
   background-color: #406b45;
+  width: 100%;
 }
 
 main {
