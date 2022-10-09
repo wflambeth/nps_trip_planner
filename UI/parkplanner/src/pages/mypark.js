@@ -30,12 +30,13 @@ export default function Mypark() {
         `https://developer.nps.gov/api/v1/alerts?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9` 
       );
       const data = await response.json();
-      setAlertData(data.data[0]);
+      setAlertData(data.data);
     };
     getAlertData();
   }, [parkCode]);
 
-  //console.log(parkData);
+  console.log(parkData);
+  console.log(alertData);
 
   return (
     <div>
@@ -52,8 +53,12 @@ export default function Mypark() {
     <div>
       <h2>Alerts:</h2>
       <ul>
-        <h3>{alertData.title}</h3>
-        <li>{alertData.description}</li>
+        {alertData.map((alert) => 
+        <>
+          <b>{alert.title}</b>
+          <li>{alert.description}</li>
+        </>
+        )}
       </ul>
     </div>
     </div>
