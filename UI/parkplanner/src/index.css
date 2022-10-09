@@ -13,6 +13,7 @@ body {
 
 header {
   background-color: #406b45;
+  background-image: url(/images/header-image.png);
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
