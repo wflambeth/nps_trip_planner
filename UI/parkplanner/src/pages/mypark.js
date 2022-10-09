@@ -12,10 +12,15 @@ export default function Mypark() {
   // get park data from API
   const [parkData, setParkData] = useState([]);
   const [alertData, setAlertData] = useState([]);
+  const [amenitiesData, setAmenitiesData] = useState([]);
+  const [eventsData, setEventsData] = useState([]);
 
-  // state for accordion menu
-  const [isActive, setIsActive] = useState(false);
-
+  // state for accordion menus
+  const [isActiveAlerts, setIsActiveAlerts] = useState(false);
+  const [isActiveAmenities, setIsActiveAmenities] = useState(false);
+  const [isActiveEvents, setIsActiveEvents] = useState(false);
+  
+  // get park info
   useEffect(() => {
     const getParkData = async () => {
       const response = await fetch(
@@ -27,6 +32,7 @@ export default function Mypark() {
     getParkData();
   }, [parkCode]);
 
+  // get alerts info
   useEffect(() => {
     const getAlertData = async () => {
       const response = await fetch(
@@ -38,8 +44,29 @@ export default function Mypark() {
     getAlertData();
   }, [parkCode]);
 
-  console.log(parkData);
-  console.log(alertData);
+  // get amenities info
+  useEffect(() => {
+    const getAmenitiesData = async () => {
+      const response = await fetch(
+        `https://developer.nps.gov/api/v1/amenities?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9`
+      );
+      const data = await response.json();
+      setAmenitiesData(data.data);
+    };
+    getAmenitiesData();
+  }, [parkCode]);
+
+  // get events info
+  useEffect(() => {
+    const getEventsData = async () => {
+      const response = await fetch(
+        `https://developer.nps.gov/api/v1/events?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9&dateStart=${new Date().toISOString().split('T')[0]}`
+      );
+      const data = await response.json();
+      setEventsData(data.data);
+    };
+    getEventsData();
+  }, [parkCode]);
 
   return (
     <>
@@ -54,15 +81,13 @@ export default function Mypark() {
         <p>{parkData.weatherInfo}</p>
       </div>
 
-
-
-
+      {/* Alerts accordion div */}
       <div className="accordion">
         <div className="accordion-item">
-          <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
-            <h2>Alerts {isActive ? '-' : '+'}</h2>
+          <div className="accordion-title" onClick={() => setIsActiveAlerts(!isActiveAlerts)}>
+            <h2>Alerts {isActiveAlerts ? '-' : '+'}</h2>
           </div>
-          {isActive && <div className="accordion-content">{
+          {isActiveAlerts && <div className="accordion-content">{
             <ul>
               {alertData.map((alert) =>
                 <>
@@ -74,6 +99,46 @@ export default function Mypark() {
           }</div>}
         </div>
       </div>
+
+      {/* Amenities accordion div */}
+      <div className="accordion">
+        <div className="accordion-item">
+          <div className="accordion-title" onClick={() => setIsActiveAmenities(!isActiveAmenities)}>
+            <h2>Amenities {isActiveAmenities ? '-' : '+'}</h2>
+          </div>
+          {isActiveAmenities && <div className="accordion-content">{
+            <ul>
+              {amenitiesData.map((amenity) =>
+                <>
+                  <li>{amenity.name}</li>
+                </>
+              )}
+            </ul>
+          }</div>}
+        </div>
+      </div>
+
+      {/* Events accordion div */}
+      <div className="accordion">
+        <div className="accordion-item">
+          <div className="accordion-title" onClick={() => setIsActiveEvents(!isActiveEvents)}>
+            <h2>Upcoming Events {isActiveEvents ? '-' : '+'}</h2>
+          </div>
+          {isActiveEvents && <div className="accordion-content">{
+            <ul>
+              {eventsData.map((event) =>
+                <>
+                  <b>{event.title} | </b>
+                  <b>{event.datestart} | </b>
+                  <b>{event.times[0].timestart} </b>
+                  <p>{event.description.replace(/(<([^>]+)>)/ig, '')}</p>
+                </>
+              )}
+            </ul>
+          }</div>}
+        </div>
+      </div>
+
     </>
   );
 }
