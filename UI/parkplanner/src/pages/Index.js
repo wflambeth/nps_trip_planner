@@ -18,7 +18,6 @@ export default function Index() {
           <div id="nav-buttons">
             <a href="/">Choose Parks</a>
             <a href="#">Choose Amenities</a>
-            <a href="#">Check Your Calendar</a>
           </div>
         </nav>
         <h2>Welcome to the National Parks Trip Planner!</h2>
