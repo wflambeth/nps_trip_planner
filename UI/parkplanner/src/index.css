@@ -10,7 +10,7 @@ body {
   background-position: center;
   margin-bottom: 30px;
   font-family: "Oswald", sans-serif;
-  width: 800px;
+  margin: auto auto;
 }
 
 h2 {
@@ -23,6 +23,7 @@ h2 {
 header {
   background-color: #406b45;
   width: 100%;
+  margin: auto auto;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
