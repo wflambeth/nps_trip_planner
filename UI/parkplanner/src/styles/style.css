@@ -33,8 +33,8 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #b4cde6;
-  color: #628e90;
+  background-color: #79e077;
+  color: #59403b;
 }
 
 h1 {
@@ -49,11 +49,14 @@ button {
   background-color: #a1c298;
   border-radius: 10px;
   border: none;
+  font-weight: bold;
   color: #562b08;
   padding: 5px 15px;
   margin-right: 15px;
   margin-left: 15px;
   margin-right: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Index() {
   //debugger;
   const [parkCode, setParkCode] = useState("");
@@ -13,19 +12,26 @@ export default function Index() {
   };
 
   return (
-    <div id='body'>
+    <div id="body">
       <body>
-        <h2>Welcome to our awesome app.</h2>
-        <p>This app has been created to make your travel planning easier.</p>
+        <nav id="articles">
+          <div id="nav-buttons">
+            <a href="/">Choose Parks</a>
+            <a href="#">Choose Amenities</a>
+            <a href="#">Check Your Calendar</a>
+          </div>
+        </nav>
+        <h2>Welcome to the National Parks Trip Planner!</h2>
+        <p>We aim to make your travel planning easier.</p>
         <p>
-          Choose the parks you want to visit, choose the options you want to
-          visit
+          Choose the park you want to visit, then choose additional options to
+          optimize your visit!
         </p>
-        <p>And have fun!</p>
+        <p>Most importantly, have fun!</p>
         <br />
         <br />
         <form>
-          <label for="choose-park">Choose the parks you want to visit</label>
+          <label for="choose-park">Choose the parks you want to visit:</label>
           <br />
           <select
             name="nationalParks"

@@ -1,8 +1,8 @@
 #head {
-  width: 1200px;
   height: 300px;
   color: #f3f1ca;
   background-color: #406b45;
   text-align: center;
   background-image: url("images/header-image.png");
+  background-position: center;
 }
