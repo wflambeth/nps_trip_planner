@@ -45,6 +45,11 @@ body {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
+li {
+  list-style: none;
+}
+
 main {
   background-color: white;
   text-align: center;

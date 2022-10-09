@@ -19,7 +19,7 @@ export default function Mypark() {
   const [isActiveAlerts, setIsActiveAlerts] = useState(false);
   const [isActiveAmenities, setIsActiveAmenities] = useState(false);
   const [isActiveEvents, setIsActiveEvents] = useState(false);
-  
+
   // get park info
   useEffect(() => {
     const getParkData = async () => {
@@ -60,7 +60,9 @@ export default function Mypark() {
   useEffect(() => {
     const getEventsData = async () => {
       const response = await fetch(
-        `https://developer.nps.gov/api/v1/events?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9&dateStart=${new Date().toISOString().split('T')[0]}`
+        `https://developer.nps.gov/api/v1/events?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9&dateStart=${
+          new Date().toISOString().split("T")[0]
+        }`
       );
       const data = await response.json();
       setEventsData(data.data);
@@ -72,73 +74,93 @@ export default function Mypark() {
     <>
       <div>
         <h1>{parkData.fullName}</h1>
-        <p>{parkData.description}</p>
-        <p>{parkData.directionsInfo}</p>
-        <p>{parkData.directionsUrl}</p>
-        <p>{parkData.latitude}</p>
-        <p>{parkData.longitude}</p>
-        <p>{parkData.url}</p>
-        <p>{parkData.weatherInfo}</p>
+        <p class="description">{parkData.description}</p>
+        <p class="directions">{parkData.directionsInfo}</p>
+        <p class="directions-url">{parkData.directionsUrl}</p>
+        <p class="coordinates-lat">{parkData.latitude}</p>
+        <p class="coordinates-lon">{parkData.longitude}</p>
+        <p class="data-url">{parkData.url}</p>
+        <p class="weather-info">{parkData.weatherInfo}</p>
       </div>
 
       {/* Alerts accordion div */}
       <div className="accordion">
         <div className="accordion-item">
-          <div className="accordion-title" onClick={() => setIsActiveAlerts(!isActiveAlerts)}>
-            <h2>Alerts {isActiveAlerts ? '-' : '+'}</h2>
+          <div
+            className="accordion-title"
+            onClick={() => setIsActiveAlerts(!isActiveAlerts)}
+          >
+            <h2>Alerts {isActiveAlerts ? "-" : "+"}</h2>
           </div>
-          {isActiveAlerts && <div className="accordion-content">{
-            <ul>
-              {alertData.map((alert) =>
-                <>
-                  <b>{alert.title}</b>
-                  <li>{alert.description}</li>
-                </>
-              )}
-            </ul>
-          }</div>}
+          {isActiveAlerts && (
+            <div className="accordion-content">
+              {
+                <ul>
+                  {alertData.map((alert) => (
+                    <>
+                      <b>{alert.title}</b>
+                      <li>{alert.description}</li>
+                    </>
+                  ))}
+                </ul>
+              }
+            </div>
+          )}
         </div>
       </div>
 
       {/* Amenities accordion div */}
       <div className="accordion">
         <div className="accordion-item">
-          <div className="accordion-title" onClick={() => setIsActiveAmenities(!isActiveAmenities)}>
-            <h2>Amenities {isActiveAmenities ? '-' : '+'}</h2>
+          <div
+            className="accordion-title"
+            onClick={() => setIsActiveAmenities(!isActiveAmenities)}
+          >
+            <h2>Amenities {isActiveAmenities ? "-" : "+"}</h2>
           </div>
-          {isActiveAmenities && <div className="accordion-content">{
-            <ul>
-              {amenitiesData.map((amenity) =>
-                <>
-                  <li>{amenity.name}</li>
-                </>
-              )}
-            </ul>
-          }</div>}
+          {isActiveAmenities && (
+            <div className="accordion-content">
+              {
+                <ul>
+                  {amenitiesData.map((amenity) => (
+                    <>
+                      <li>{amenity.name}</li>
+                    </>
+                  ))}
+                </ul>
+              }
+            </div>
+          )}
         </div>
       </div>
 
       {/* Events accordion div */}
       <div className="accordion">
         <div className="accordion-item">
-          <div className="accordion-title" onClick={() => setIsActiveEvents(!isActiveEvents)}>
-            <h2>Upcoming Events {isActiveEvents ? '-' : '+'}</h2>
+          <div
+            className="accordion-title"
+            onClick={() => setIsActiveEvents(!isActiveEvents)}
+          >
+            <h2>Upcoming Events {isActiveEvents ? "-" : "+"}</h2>
           </div>
-          {isActiveEvents && <div className="accordion-content">{
-            <ul>
-              {eventsData.map((event) =>
-                <>
-                  <b>{event.title} | </b>
-                  <b>{event.datestart} | </b>
-                  <b>{event.times[0].timestart} </b>
-                  <p>{event.description.replace(/(<([^>]+)>)/ig, '')}</p>
-                </>
-              )}
-            </ul>
-          }</div>}
+          {isActiveEvents && (
+            <div className="accordion-content">
+              {
+                <ul>
+                  {eventsData.map((event) => (
+                    <>
+                      <b>{event.title} | </b>
+                      <b>{event.datestart} | </b>
+                      <b>{event.times[0].timestart} </b>
+                      <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
+                    </>
+                  ))}
+                </ul>
+              }
+            </div>
+          )}
         </div>
       </div>
-
     </>
   );
 }
