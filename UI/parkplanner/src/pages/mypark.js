@@ -13,6 +13,9 @@ export default function Mypark() {
   const [parkData, setParkData] = useState([]);
   const [alertData, setAlertData] = useState([]);
 
+  // state for accordion menu
+  const [isActive, setIsActive] = useState(false);
+
   useEffect(() => {
     const getParkData = async () => {
       const response = await fetch(
@@ -27,7 +30,7 @@ export default function Mypark() {
   useEffect(() => {
     const getAlertData = async () => {
       const response = await fetch(
-        `https://developer.nps.gov/api/v1/alerts?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9` 
+        `https://developer.nps.gov/api/v1/alerts?parkCode=${parkCode}&api_key=y02YQZIE073ut1YQNZMW5vYHnHA4oxLRoG99EIV9`
       );
       const data = await response.json();
       setAlertData(data.data);
@@ -39,28 +42,38 @@ export default function Mypark() {
   console.log(alertData);
 
   return (
-    <div>
-    <div>
-      <h1>{parkData.fullName}</h1>
-      <p>{parkData.description}</p>
-      <p>{parkData.directionsInfo}</p>
-      <p>{parkData.directionsUrl}</p>
-      <p>{parkData.latitude}</p>
-      <p>{parkData.longitude}</p>
-      <p>{parkData.url}</p>
-      <p>{parkData.weatherInfo}</p>
-    </div>
-    <div>
-      <h2>Alerts:</h2>
-      <ul>
-        {alertData.map((alert) => 
-        <>
-          <b>{alert.title}</b>
-          <li>{alert.description}</li>
-        </>
-        )}
-      </ul>
-    </div>
-    </div>
+    <>
+      <div>
+        <h1>{parkData.fullName}</h1>
+        <p>{parkData.description}</p>
+        <p>{parkData.directionsInfo}</p>
+        <p>{parkData.directionsUrl}</p>
+        <p>{parkData.latitude}</p>
+        <p>{parkData.longitude}</p>
+        <p>{parkData.url}</p>
+        <p>{parkData.weatherInfo}</p>
+      </div>
+
+
+
+
+      <div className="accordion">
+        <div className="accordion-item">
+          <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
+            <h2>Alerts {isActive ? '-' : '+'}</h2>
+          </div>
+          {isActive && <div className="accordion-content">{
+            <ul>
+              {alertData.map((alert) =>
+                <>
+                  <b>{alert.title}</b>
+                  <li>{alert.description}</li>
+                </>
+              )}
+            </ul>
+          }</div>}
+        </div>
+      </div>
+    </>
   );
 }
