@@ -10,6 +10,8 @@ Our project was awarded the "Social Good Award" by the hackathon judges, netting
 
 The home page, where users can select any active national park: 
 
+![Homepage screenshot](https://github.com/wflambeth/nps_trip_planner/blob/main/screenshots/nps_screenshot_01.jpeg)
 
 An example park details page: 
 
+![Details page screenshot](https://github.com/wflambeth/nps_trip_planner/blob/main/screenshots/nps_screenshot_02.jpeg)
